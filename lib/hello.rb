@@ -1,13 +1,19 @@
 def hello_t(array)
-  i = 0
-  while i < array.length
-    yield array[i]
-    i = i + 1
+  if block_given?
+    i = 0
+
+    while i < array.length
+      yield(array[i])
+      i = i + 1
+    end
+
+    array
+  else
+    puts "Hey! No block was given!"
   end
-  array
 end
 
 # call your method here!
-hello_t(array).each do |name|
-  puts name
-end
+#hello_t(array).each do |name|
+#  puts name
+#end
